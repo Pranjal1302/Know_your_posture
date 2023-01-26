@@ -7,6 +7,7 @@ import 'package:yoga/main.dart';
 import 'package:yoga/screens/home/user_list.dart';
 import 'package:yoga/screens/navigation/explore.dart';
 import 'package:yoga/screens/navigation/profile.dart';
+import 'package:yoga/screens/navigation/yogapage.dart';
 import 'package:yoga/screens/wrapper.dart';
 import 'package:yoga/services/auth.dart';
 import 'package:yoga/services/database.dart';
@@ -14,6 +15,7 @@ import 'package:provider/provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:yoga/models/Users.dart';
 
+import '../navigation/exercisepage.dart';
 import '../navigation/report.dart';
 
 class Home extends StatelessWidget {
@@ -53,21 +55,183 @@ class Home extends StatelessWidget {
       value: DatabaseService(uid: '').users,
       initialData: const <Users>[],
       child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 0, 0, 0),
+        body: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 30,
+              ),
+              Card(
+                color: Color.fromARGB(255, 128, 210, 227),
+                elevation: 50,
+                child: SizedBox(
+                  height: 150,
+                  width: 400,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: const <Widget>[
+                          Text(
+                            'Notifications',
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      const Icon(
+                        Icons.notifications_none,
+                        color: Colors.black,
+                        size: 30,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              SizedBox(
+                height: 250,
+                width: 400,
+                child: Row(
+                  children: [
+                    SizedBox(
+                      height: 250,
+                      width: 175,
+                      child: InkWell(
+                        child: Card(
+                          elevation: 50,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: const [
+                              Text(
+                                'Yoga',
+                                style: TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Icon(
+                                Icons.accessibility_new,
+                                color: Colors.black,
+                                size: 100,
+                              ),
+                            ],
+                          ),
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const YogaPage()),
+                          );
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      height: 250,
+                      width: 175,
+                      child: InkWell(
+                        child: Card(
+                          elevation: 50,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: const [
+                              Text(
+                                'Exercise',
+                                style: TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Icon(
+                                Icons.directions_run,
+                                color: Colors.black,
+                                size: 100,
+                              ),
+                            ],
+                          ),
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ExercisePage()),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Card(
+                color: Color.fromARGB(255, 229, 223, 149),
+                elevation: 50,
+                child: SizedBox(
+                  height: 250,
+                  width: 400,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: const <Widget>[
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        'Daily Report',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         bottomNavigationBar: Container(
-          color: Color.fromARGB(255, 255, 255, 255),
+          color: const Color.fromARGB(255, 255, 255, 255),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: GNav(
               onTabChange: (index) {
                 _navigateToPage(context, index);
               },
-              rippleColor: Color.fromARGB(255, 255, 255, 255)!,
+              rippleColor: const Color.fromARGB(255, 255, 255, 255)!,
               gap: 8,
-              padding: EdgeInsets.all(16),
-              backgroundColor: Color.fromARGB(255, 255, 255, 255),
-              color: Color.fromARGB(255, 0, 0, 0),
-              activeColor: Color.fromARGB(255, 255, 255, 255),
+              padding: const EdgeInsets.all(16),
+              backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+              color: const Color.fromARGB(255, 0, 0, 0),
+              activeColor: const Color.fromARGB(255, 255, 255, 255),
               tabs: const <GButton>[
                 GButton(
                   icon: Icons.home,
@@ -95,13 +259,18 @@ class Home extends StatelessWidget {
           ),
         ),
         // appBar: AppBar(
-        //   title: const Text('Home'),
-        //   backgroundColor: Color.fromARGB(255, 150, 245, 245),
+        //   title: const Text('Home',
+        //       style: TextStyle(
+        //           color: Colors.black,
+        //           fontSize: 30.0,
+        //           fontWeight: FontWeight.bold)),
+        //   backgroundColor: Color.fromARGB(255, 251, 251, 251),
         //   elevation: 0.0,
         //   actions: <Widget>[
         //     TextButton.icon(
-        //       icon: const Icon(Icons.person),
-        //       label: const Text('logout'),
+        //       icon: const Icon(Icons.person, color: Colors.black),
+        //       label:
+        //           const Text('logout', style: TextStyle(color: Colors.black)),
         //       onPressed: () async {
         //         await AuthService().signOut();
         //         Navigator.push(

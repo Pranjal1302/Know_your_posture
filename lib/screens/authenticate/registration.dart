@@ -24,23 +24,30 @@ class _RegisterState extends State<Register> {
     return loading
         ? Loading()
         : Scaffold(
-            backgroundColor: Color.fromARGB(255, 255, 255, 255),
-            appBar: AppBar(
-              backgroundColor: Color.fromARGB(82, 255, 255, 255),
-              elevation: 0.0,
-              actions: [],
-            ),
             body: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color.fromARGB(255, 166, 0, 255),
+                    Color.fromARGB(255, 182, 62, 182),
+                    Color.fromARGB(255, 124, 90, 158),
+                    Color.fromARGB(255, 72, 50, 144),
+                  ],
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                ),
+              ),
               padding: const EdgeInsets.all(20),
               child: Form(
                 key: _formKey,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const Text(
-                      "    Register",
+                      "Register",
                       style: TextStyle(
+                        color: Colors.white,
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
                       ),
@@ -57,7 +64,8 @@ class _RegisterState extends State<Register> {
                       keyboardType: TextInputType.emailAddress,
                       decoration: const InputDecoration(
                         hintText: "Enter your email",
-                        prefixIcon: Icon(Icons.email),
+                        hintStyle: TextStyle(color: Colors.white),
+                        prefixIcon: Icon(Icons.email, color: Colors.white),
                         border: OutlineInputBorder(),
                       ),
                     ),
@@ -74,7 +82,8 @@ class _RegisterState extends State<Register> {
                       obscureText: true,
                       decoration: const InputDecoration(
                         hintText: "Enter your password",
-                        prefixIcon: Icon(Icons.security),
+                        hintStyle: TextStyle(color: Colors.white),
+                        prefixIcon: Icon(Icons.security, color: Colors.white),
                         border: OutlineInputBorder(),
                       ),
                     ),
@@ -102,6 +111,12 @@ class _RegisterState extends State<Register> {
                             }
                           }
                         },
+                        style: ElevatedButton.styleFrom(
+                          primary: Color.fromARGB(255, 113, 89, 222),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(32.0),
+                          ),
+                        ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -113,12 +128,17 @@ class _RegisterState extends State<Register> {
                       onPressed: () {
                         widget.toggleView();
                       },
-                      label: const Text('Already have an account?'),
-                      icon: const Icon(Icons.app_registration),
+                      label: const Text('Already have an account?',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontStyle: FontStyle.italic)),
+                      icon: const Icon(Icons.app_registration,
+                          color: Colors.white),
                     ),
                     Text(error,
-                        style:
-                            const TextStyle(color: Colors.red, fontSize: 14.0)),
+                        style: const TextStyle(
+                            color: Color.fromARGB(255, 246, 162, 182),
+                            fontSize: 14.0)),
                     const SizedBox(
                       height: 70,
                     ),

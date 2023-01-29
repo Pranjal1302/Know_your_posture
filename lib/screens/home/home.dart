@@ -55,166 +55,180 @@ class Home extends StatelessWidget {
       value: DatabaseService(uid: '').users,
       initialData: const <Users>[],
       child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: 30,
-              ),
-              Card(
-                color: Color.fromARGB(255, 128, 210, 227),
-                elevation: 50,
-                child: SizedBox(
-                  height: 150,
-                  width: 400,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const <Widget>[
-                          Text(
-                            'Notifications',
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(255, 166, 0, 255),
+                Color.fromARGB(255, 182, 62, 182),
+                Color.fromARGB(255, 124, 90, 158),
+                Color.fromARGB(255, 72, 50, 144),
+              ],
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 30,
+                ),
+                Card(
+                  color: Color.fromARGB(255, 128, 210, 227),
+                  elevation: 50,
+                  child: SizedBox(
+                    height: 150,
+                    width: 400,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: const <Widget>[
+                            Text(
+                              'Notifications',
+                              style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      const Icon(
-                        Icons.notifications_none,
-                        color: Colors.black,
-                        size: 30,
-                      ),
-                    ],
+                          ],
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        const Icon(
+                          Icons.notifications_none,
+                          color: Colors.black,
+                          size: 30,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              SizedBox(
-                height: 250,
-                width: 400,
-                child: Row(
-                  children: [
-                    SizedBox(
-                      height: 250,
-                      width: 175,
-                      child: InkWell(
-                        child: Card(
-                          elevation: 50,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: const [
-                              Text(
-                                'Yoga',
-                                style: TextStyle(
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Icon(
-                                Icons.accessibility_new,
-                                color: Colors.black,
-                                size: 100,
-                              ),
-                            ],
-                          ),
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const YogaPage()),
-                          );
-                        },
-                      ),
-                    ),
-                    SizedBox(
-                      height: 250,
-                      width: 175,
-                      child: InkWell(
-                        child: Card(
-                          elevation: 50,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: const [
-                              Text(
-                                'Exercise',
-                                style: TextStyle(
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Icon(
-                                Icons.directions_run,
-                                color: Colors.black,
-                                size: 100,
-                              ),
-                            ],
-                          ),
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const ExercisePage()),
-                          );
-                        },
-                      ),
-                    ),
-                  ],
+                const SizedBox(
+                  height: 30,
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Card(
-                color: Color.fromARGB(255, 229, 223, 149),
-                elevation: 50,
-                child: SizedBox(
+                SizedBox(
                   height: 250,
                   width: 400,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const <Widget>[
+                  child: Row(
+                    children: [
                       SizedBox(
-                        height: 10,
+                        height: 250,
+                        width: 175,
+                        child: InkWell(
+                          child: Card(
+                            elevation: 50,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: const [
+                                Text(
+                                  'Yoga',
+                                  style: TextStyle(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Icon(
+                                  Icons.accessibility_new,
+                                  color: Colors.black,
+                                  size: 100,
+                                ),
+                              ],
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const YogaPage()),
+                            );
+                          },
+                        ),
                       ),
-                      Text(
-                        'Daily Report',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                      SizedBox(
+                        height: 250,
+                        width: 175,
+                        child: InkWell(
+                          child: Card(
+                            elevation: 50,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: const [
+                                Text(
+                                  'Exercise',
+                                  style: TextStyle(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Icon(
+                                  Icons.directions_run,
+                                  color: Colors.black,
+                                  size: 100,
+                                ),
+                              ],
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const ExercisePage()),
+                            );
+                          },
                         ),
                       ),
                     ],
                   ),
                 ),
-              ),
-            ],
+                const SizedBox(
+                  height: 30,
+                ),
+                Card(
+                  color: Color.fromARGB(255, 229, 223, 149),
+                  elevation: 50,
+                  child: SizedBox(
+                    height: 250,
+                    width: 400,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: const <Widget>[
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          'Daily Report',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         backgroundColor: const Color.fromARGB(255, 0, 0, 0),

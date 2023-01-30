@@ -58,138 +58,153 @@ class _ReportState extends State<Report> {
     }
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-            padding: const EdgeInsets.fromLTRB(20, 50, 20, 0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                const Text(
-                  'Report',
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Card(
-                  color: const Color.fromARGB(255, 229, 223, 149),
-                  elevation: 50,
-                  child: SizedBox(
-                    height: 250,
-                    width: 400,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: const <Widget>[
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          'Weekly Report',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                      ],
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color.fromARGB(255, 166, 0, 255),
+              Color.fromARGB(255, 182, 62, 182),
+              Color.fromARGB(255, 124, 90, 158),
+              Color.fromARGB(255, 72, 50, 144),
+            ],
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Padding(
+              padding: const EdgeInsets.fromLTRB(20, 50, 20, 0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  const Text(
+                    'Report',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Card(
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Card(
+                    color: const Color.fromARGB(255, 229, 223, 149),
                     elevation: 50,
-                    color: Colors.greenAccent,
                     child: SizedBox(
-                      height: 50,
+                      height: 250,
                       width: 400,
-                      child: const Padding(
-                        padding: EdgeInsets.all(11.0),
-                        child: Text(
-                          'Q. How useful is this app?',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: const <Widget>[
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            'Weekly Report',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Card(
+                      elevation: 50,
+                      color: Colors.greenAccent,
+                      child: SizedBox(
+                        height: 50,
+                        width: 400,
+                        child: Padding(
+                          padding: EdgeInsets.all(11.0),
+                          child: Text(
+                            'Q. How useful is this app?',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
-                      ),
-                    )),
-                const SizedBox(
-                  height: 20,
-                ),
-                Card(
-                    elevation: 50,
-                    color: Colors.greenAccent,
-                    child: SizedBox(
-                      height: 75,
-                      width: 400,
-                      child: const Padding(
-                        padding: EdgeInsets.all(12.0),
-                        child: Text(
-                          'Q. To whom would you recommend this app?',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
+                      )),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Card(
+                      elevation: 50,
+                      color: Colors.greenAccent,
+                      child: SizedBox(
+                        height: 75,
+                        width: 400,
+                        child: Padding(
+                          padding: EdgeInsets.all(12.0),
+                          child: Text(
+                            'Q. To whom would you recommend this app?',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
-                      ),
-                    )),
-                const SizedBox(
-                  height: 20,
-                ),
-                Card(
-                    elevation: 50,
-                    color: Colors.greenAccent,
-                    child: SizedBox(
-                      height: 195,
-                      width: 400,
-                      child: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Column(
-                          children: [
-                            const Text(
-                              'Q. Help us improve this app by giving us your feedback',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
+                      )),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Card(
+                      elevation: 50,
+                      color: Colors.greenAccent,
+                      child: SizedBox(
+                        height: 195,
+                        width: 400,
+                        child: Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Column(
+                            children: [
+                              const Text(
+                                'Q. Help us improve this app by giving us your feedback',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
                               ),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            const TextField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                labelText: 'Feedback',
+                              const SizedBox(
+                                height: 10,
                               ),
-                            ),
-                            TextButton(
-                              onPressed: () => {
-                                print('You pressed the button.'),
-                              },
-                              child: Text(
-                                'Submit',
+                              const TextField(
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  labelText: 'Feedback',
+                                ),
                               ),
-                            ),
-                          ],
+                              TextButton(
+                                onPressed: () => {
+                                  print('You pressed the button.'),
+                                },
+                                child: const Text(
+                                  'Submit',
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ))
-              ],
-            )),
+                      ))
+                ],
+              )),
+        ),
       ),
       backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       bottomNavigationBar: Container(
@@ -200,12 +215,12 @@ class _ReportState extends State<Report> {
             onTabChange: (index) {
               _navigateToPage(context, index);
             },
-            rippleColor: Color.fromARGB(255, 255, 255, 255)!,
+            rippleColor: const Color.fromARGB(255, 255, 255, 255)!,
             gap: 8,
             padding: const EdgeInsets.all(16),
-            backgroundColor: Color.fromARGB(255, 255, 255, 255),
-            color: const Color.fromARGB(255, 0, 0, 0),
-            activeColor: Color.fromARGB(255, 255, 255, 255),
+            backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+            color: const Color.fromARGB(255, 172, 128, 255),
+            activeColor: const Color.fromARGB(255, 255, 255, 255),
             tabs: const <GButton>[
               GButton(
                 icon: Icons.home,
@@ -220,7 +235,7 @@ class _ReportState extends State<Report> {
               GButton(
                 icon: Icons.add_circle_outline,
                 text: 'Report',
-                backgroundColor: Color.fromARGB(255, 152, 171, 171),
+                backgroundColor: Color.fromARGB(255, 182, 160, 242),
               ),
               GButton(
                 icon: Icons.person,

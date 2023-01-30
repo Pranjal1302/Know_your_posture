@@ -233,24 +233,24 @@ class Home extends StatelessWidget {
         ),
         backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         bottomNavigationBar: Container(
-          color: const Color.fromARGB(255, 255, 255, 255),
+          color: Color.fromARGB(255, 255, 255, 255),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: GNav(
               onTabChange: (index) {
                 _navigateToPage(context, index);
               },
-              rippleColor: const Color.fromARGB(255, 255, 255, 255)!,
+              rippleColor: Color.fromARGB(255, 255, 255, 255),
               gap: 8,
               padding: const EdgeInsets.all(16),
-              backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-              color: const Color.fromARGB(255, 0, 0, 0),
+              backgroundColor: Color.fromARGB(255, 255, 255, 255),
+              color: Color.fromARGB(255, 172, 128, 255),
               activeColor: const Color.fromARGB(255, 255, 255, 255),
               tabs: const <GButton>[
                 GButton(
                   icon: Icons.home,
                   text: 'Home',
-                  backgroundColor: Color.fromARGB(255, 152, 171, 171),
+                  backgroundColor: Color.fromARGB(255, 182, 160, 242),
                 ),
                 GButton(
                   icon: Icons.search,

@@ -1,4 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/material.dart';
@@ -6,8 +9,10 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:yoga/main.dart';
 import 'package:yoga/screens/home/user_list.dart';
 import 'package:yoga/screens/navigation/explore.dart';
+import 'package:yoga/screens/navigation/notification.dart';
 import 'package:yoga/screens/navigation/profile.dart';
 import 'package:yoga/screens/navigation/yogapage.dart';
+import 'package:yoga/screens/navigation/yogasitting.dart';
 import 'package:yoga/screens/wrapper.dart';
 import 'package:yoga/services/auth.dart';
 import 'package:yoga/services/database.dart';
@@ -18,8 +23,14 @@ import 'package:yoga/models/Users.dart';
 import '../navigation/exercisepage.dart';
 import '../navigation/report.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   _navigateToPage(context, index) {
     switch (index) {
       case 0:
@@ -51,6 +62,12 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FirebaseDatabase database = FirebaseDatabase.instance;
+    DatabaseReference ref = FirebaseDatabase.instance.ref("test");
+    Stream<DatabaseEvent> stream = ref.onValue;
+    stream.listen((DatabaseEvent event) {
+      print(event.snapshot.value);
+    });
     return StreamProvider<List<Users>>.value(
       value: DatabaseService(uid: '').users,
       initialData: const <Users>[],
@@ -77,39 +94,46 @@ class Home extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                Card(
-                  color: Color.fromARGB(255, 128, 210, 227),
-                  elevation: 50,
-                  child: SizedBox(
-                    height: 150,
-                    width: 400,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: const <Widget>[
-                            Text(
-                              'Notifications',
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
+                InkWell(
+                  child: Card(
+                    color: const Color.fromARGB(255, 128, 210, 227),
+                    elevation: 50,
+                    child: SizedBox(
+                      height: 150,
+                      width: 400,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              const Text(
+                                'Notifications',
+                                style: TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          width: 20,
-                        ),
-                        const Icon(
-                          Icons.notifications_none,
-                          color: Colors.black,
-                          size: 30,
-                        ),
-                      ],
+                            ],
+                          ),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          const Icon(
+                            Icons.notifications_none,
+                            color: Colors.black,
+                            size: 30,
+                          ),
+                        ],
+                      ),
                     ),
+                  ),
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const notification()),
                   ),
                 ),
                 const SizedBox(
@@ -203,7 +227,7 @@ class Home extends StatelessWidget {
                   height: 30,
                 ),
                 Card(
-                  color: Color.fromARGB(255, 229, 223, 149),
+                  color: const Color.fromARGB(255, 229, 223, 149),
                   elevation: 50,
                   child: SizedBox(
                     height: 250,
@@ -211,11 +235,11 @@ class Home extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      children: const <Widget>[
-                        SizedBox(
+                      children: <Widget>[
+                        const SizedBox(
                           height: 10,
                         ),
-                        Text(
+                        const Text(
                           'Daily Report',
                           style: TextStyle(
                             fontSize: 20,
@@ -223,6 +247,14 @@ class Home extends StatelessWidget {
                             color: Colors.black,
                           ),
                         ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        SizedBox(
+                          height: 175,
+                          child: Image.network(
+                              "https://prd-api-aggregate.statcrunch.com/api/aggregation/documents/531754XHXWH?context=results_image&code=&extension=png"),
+                        )
                       ],
                     ),
                   ),
@@ -233,18 +265,18 @@ class Home extends StatelessWidget {
         ),
         backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         bottomNavigationBar: Container(
-          color: Color.fromARGB(255, 255, 255, 255),
+          color: const Color.fromARGB(255, 255, 255, 255),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: GNav(
               onTabChange: (index) {
                 _navigateToPage(context, index);
               },
-              rippleColor: Color.fromARGB(255, 255, 255, 255),
+              rippleColor: const Color.fromARGB(255, 255, 255, 255),
               gap: 8,
               padding: const EdgeInsets.all(16),
-              backgroundColor: Color.fromARGB(255, 255, 255, 255),
-              color: Color.fromARGB(255, 172, 128, 255),
+              backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+              color: const Color.fromARGB(255, 172, 128, 255),
               activeColor: const Color.fromARGB(255, 255, 255, 255),
               tabs: const <GButton>[
                 GButton(

@@ -10,6 +10,8 @@ class yogasitting extends StatefulWidget {
 class _yogasittingState extends State<yogasitting> {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -24,7 +26,7 @@ class _yogasittingState extends State<yogasitting> {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(0, 60, 0, 0),
+          padding: EdgeInsets.fromLTRB(0, 0.1 * screenHeight, 0, 0),
           child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -32,18 +34,18 @@ class _yogasittingState extends State<yogasitting> {
                 Text('Sitting',
                     style: const TextStyle(color: Colors.white, fontSize: 30)),
                 SizedBox(
-                  height: 200,
-                  width: 300,
+                  height: 0.25 * screenHeight,
+                  width: 0.9 * screenWidth,
                   child: Image.asset('assets/sitting1.jpeg'),
                 ),
                 SizedBox(
-                  height: 200,
-                  width: 300,
+                  height: 0.25 * screenHeight,
+                  width: 0.9 * screenWidth,
                   child: Image.asset('assets/sitting2.jpeg'),
                 ),
                 SizedBox(
-                  height: 200,
-                  width: 300,
+                  height: 0.25 * screenHeight,
+                  width: 0.9 * screenWidth,
                   child: Image.asset('assets/sitting3.jpeg'),
                 ),
               ]),

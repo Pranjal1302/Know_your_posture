@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yoga/screens/navigation/steps/seatedknee.dart';
 
 class exesitting extends StatefulWidget {
   const exesitting({Key? key}) : super(key: key);
@@ -37,11 +38,17 @@ class _exesittingState extends State<exesitting> {
                 SizedBox(
                   height: 80,
                 ),
-                SizedBox(
-                  height: 200,
-                  width: 300,
-                  child: Image.network(
-                      "https://www.btod.com/blog/wp-content/uploads/2017/01/04-stretches-seated-knee-to-chest.jpg"),
+                InkWell(
+                  child: SizedBox(
+                    height: 200,
+                    width: 300,
+                    child: Image.network(
+                        "https://www.btod.com/blog/wp-content/uploads/2017/01/04-stretches-seated-knee-to-chest.jpg"),
+                  ),
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const seatedknee()),
+                  ),
                 ),
                 SizedBox(
                   height: 200,

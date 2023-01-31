@@ -12,6 +12,8 @@ class YogaPage extends StatefulWidget {
 class _YogaPageState extends State<YogaPage> {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
           decoration: const BoxDecoration(
@@ -27,21 +29,21 @@ class _YogaPageState extends State<YogaPage> {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(60.0),
+            padding: EdgeInsets.all(0.15 * width),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const Text('Yoga',
                     style: TextStyle(color: Colors.white, fontSize: 30)),
-                const SizedBox(
-                  height: 50,
+                SizedBox(
+                  height: 0.05 * height,
                 ),
                 InkWell(
                   child: Stack(children: [
                     SizedBox(
-                      height: 300,
-                      width: 300,
+                      height: 0.35 * height,
+                      width: 0.9 * width,
                       child: Image.asset('assets/yoga_standing.jpeg'),
                     ),
                     const Text(
@@ -58,19 +60,19 @@ class _YogaPageState extends State<YogaPage> {
                     );
                   },
                 ),
-                const SizedBox(
-                  height: 50,
+                SizedBox(
+                  height: 0.05 * height,
                 ),
                 InkWell(
                   child: Stack(children: [
                     SizedBox(
-                      height: 300,
-                      width: 300,
+                      height: 0.35 * height,
+                      width: 0.9 * width,
                       child: Image.asset('assets/yoga_sitting.jpeg'),
                     ),
-                    const Positioned(
-                      top: 40,
-                      child: Text(
+                    Positioned(
+                      top: 0.05 * height,
+                      child: const Text(
                         '  Sitting',
                         style: TextStyle(
                             color: Color.fromARGB(255, 0, 0, 0), fontSize: 20),

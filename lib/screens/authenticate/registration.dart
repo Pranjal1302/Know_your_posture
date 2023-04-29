@@ -21,39 +21,44 @@ class _RegisterState extends State<Register> {
   String error = '';
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return loading
         ? Loading()
         : Scaffold(
             body: Container(
               decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color.fromARGB(255, 166, 0, 255),
-                    Color.fromARGB(255, 182, 62, 182),
-                    Color.fromARGB(255, 124, 90, 158),
-                    Color.fromARGB(255, 72, 50, 144),
-                  ],
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                ),
+                // gradient: LinearGradient(
+                //   colors: [
+                //     Color.fromARGB(255, 166, 0, 255),
+                //     Color.fromARGB(255, 182, 62, 182),
+                //     Color.fromARGB(255, 124, 90, 158),
+                //     Color.fromARGB(255, 72, 50, 144),
+                //   ],
+                //   begin: Alignment.topRight,
+                //   end: Alignment.bottomLeft,
+                // ),
+                color: Color.fromARGB(255, 60, 67, 111),
               ),
-              padding: const EdgeInsets.all(20),
+              padding: EdgeInsets.symmetric(
+                  vertical: 0.2 * height, horizontal: 0.05 * width),
               child: Form(
                 key: _formKey,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      "Register",
+                      "Sign Up",
+                      textAlign: TextAlign.left,
                       style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 30,
+                        color: Color.fromARGB(255, 253, 220, 189),
+                        fontSize: 50,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 30,
                     ),
                     TextFormField(
                       validator: (value) =>
@@ -90,40 +95,49 @@ class _RegisterState extends State<Register> {
                     const SizedBox(
                       height: 18,
                     ),
-                    ElevatedButton(
-                        onPressed: () async {
-                          if (_formKey.currentState!.validate()) {
-                            setState(() {
-                              loading = true;
-                            });
-                            dynamic result = await _auth
-                                .registerWithEmailAndPassword(email, password);
-                            if (result == null) {
+                    SizedBox(
+                      height: 50,
+                      child: ElevatedButton(
+                          onPressed: () async {
+                            if (_formKey.currentState!.validate()) {
                               setState(() {
-                                loading = false;
-                                error = 'Please supply a valid email';
+                                loading = true;
                               });
-                            } else {
-                              setState(() {
-                                loading = false;
-                                error = 'Registered Successfully';
-                              });
+                              dynamic result =
+                                  await _auth.registerWithEmailAndPassword(
+                                      email, password);
+                              if (result == null) {
+                                setState(() {
+                                  loading = false;
+                                  error = 'Please supply a valid email';
+                                });
+                              } else {
+                                setState(() {
+                                  loading = false;
+                                  error = 'Registered Successfully';
+                                });
+                              }
                             }
-                          }
-                        },
-                        style: ElevatedButton.styleFrom(
-                          primary: Color.fromARGB(255, 113, 89, 222),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(32.0),
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: const Color.fromARGB(255, 253, 220, 189),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(6.0),
+                            ),
                           ),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: const [
-                            Text('Register'),
-                          ],
-                        )),
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Sign Up',
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 60, 67, 111),
+                                    fontSize: 20),
+                              ),
+                            ],
+                          )),
+                    ),
                     TextButton.icon(
                       onPressed: () {
                         widget.toggleView();

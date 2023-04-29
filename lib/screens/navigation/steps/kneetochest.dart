@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../yogasitting.dart';
 import '../yogastanding.dart';
 
-class seatedknee extends StatelessWidget {
-  const seatedknee({Key? key}) : super(key: key);
+class knee extends StatelessWidget {
+  const knee({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class seatedknee extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Text('Seated Knee',
+                const Text('knee to chest pose',
                     style: TextStyle(color: Colors.white, fontSize: 30)),
                 SizedBox(
                   height: 0.05 * height,
@@ -29,12 +29,11 @@ class seatedknee extends StatelessWidget {
                   SizedBox(
                     height: 0.35 * height,
                     width: 0.9 * width,
-                    child: Image.network(
-                        "https://www.btod.com/blog/wp-content/uploads/2017/01/04-stretches-seated-knee-to-chest.jpg"),
+                    child: Image.asset('assets/sitting3.jpeg'),
                   ),
                 ]),
                 const Text(
-                  '1.While sitting in a chair, raise one knee as if you are marching until you can reach it with your hands',
+                  '1.On the inhale, bend the right knee and interlock the fingers below the knee.  The left leg remains extended and on the mat/ground.',
                   style: TextStyle(
                       color: Color.fromARGB(255, 255, 255, 255), fontSize: 15),
                   textAlign: TextAlign.justify,
@@ -43,7 +42,7 @@ class seatedknee extends StatelessWidget {
                   height: 0.02 * height,
                 ),
                 const Text(
-                  '2.Use both hands to pull the bent knee up toward your chest until you feel a gentle stretch in the lower back and back of the hip.',
+                  '2.On the exhale, roll the head and shoulders off the ground, bringing the nose towards the right knee.  Hold for 1-3 breaths.',
                   style: TextStyle(
                       color: Color.fromARGB(255, 255, 255, 255), fontSize: 15),
                   textAlign: TextAlign.justify,
@@ -52,16 +51,7 @@ class seatedknee extends StatelessWidget {
                   height: 0.02 * height,
                 ),
                 const Text(
-                  '3.Your hands can be on top of your knee or behind your knee for comfort. ',
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 255, 255, 255), fontSize: 15),
-                  textAlign: TextAlign.justify,
-                ),
-                SizedBox(
-                  height: 0.02 * height,
-                ),
-                const Text(
-                  '4.Hold this position for 15-20 seconds, then repeat 3-5 times on each side',
+                  '3.On the inhale, roll the head and shoulders back to the start position and release the right leg.  Repeat 3 times with the right leg and then three times with the left leg.',
                   style: TextStyle(
                       color: Color.fromARGB(255, 255, 255, 255), fontSize: 15),
                   textAlign: TextAlign.justify,

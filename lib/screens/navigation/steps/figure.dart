@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../yogasitting.dart';
 import '../yogastanding.dart';
 
-class seatedknee extends StatelessWidget {
-  const seatedknee({Key? key}) : super(key: key);
+class figure extends StatelessWidget {
+  const figure({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,21 +20,24 @@ class seatedknee extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Text('Seated Knee',
-                    style: TextStyle(color: Colors.white, fontSize: 30)),
+                const Text(
+                  'Seated Figure 4 Stretch',
+                  style: TextStyle(color: Colors.white, fontSize: 30),
+                  textAlign: TextAlign.center,
+                ),
                 SizedBox(
-                  height: 0.05 * height,
+                  height: 0.03 * height,
                 ),
                 Stack(children: [
                   SizedBox(
                     height: 0.35 * height,
                     width: 0.9 * width,
                     child: Image.network(
-                        "https://www.btod.com/blog/wp-content/uploads/2017/01/04-stretches-seated-knee-to-chest.jpg"),
+                        "https://www.btod.com/blog/wp-content/uploads/2017/01/06-stretches-seated-figure-4.jpg"),
                   ),
                 ]),
                 const Text(
-                  '1.While sitting in a chair, raise one knee as if you are marching until you can reach it with your hands',
+                  '1.Seated in a chair, cross one leg on top of the other so that your ankle is sitting over the opposite knee.',
                   style: TextStyle(
                       color: Color.fromARGB(255, 255, 255, 255), fontSize: 15),
                   textAlign: TextAlign.justify,
@@ -43,7 +46,7 @@ class seatedknee extends StatelessWidget {
                   height: 0.02 * height,
                 ),
                 const Text(
-                  '2.Use both hands to pull the bent knee up toward your chest until you feel a gentle stretch in the lower back and back of the hip.',
+                  '2.Place one hand on the knee of the crossed leg.',
                   style: TextStyle(
                       color: Color.fromARGB(255, 255, 255, 255), fontSize: 15),
                   textAlign: TextAlign.justify,
@@ -52,7 +55,7 @@ class seatedknee extends StatelessWidget {
                   height: 0.02 * height,
                 ),
                 const Text(
-                  '3.Your hands can be on top of your knee or behind your knee for comfort. ',
+                  '3.Gently lean your trunk forward while pressing gently on the crossed knee until you feel a mild to moderate stretch in the hip and buttock area.',
                   style: TextStyle(
                       color: Color.fromARGB(255, 255, 255, 255), fontSize: 15),
                   textAlign: TextAlign.justify,
@@ -61,7 +64,7 @@ class seatedknee extends StatelessWidget {
                   height: 0.02 * height,
                 ),
                 const Text(
-                  '4.Hold this position for 15-20 seconds, then repeat 3-5 times on each side',
+                  '4.Hold the stretch for 15-20 seconds, then repeat 3-5 times on each side.',
                   style: TextStyle(
                       color: Color.fromARGB(255, 255, 255, 255), fontSize: 15),
                   textAlign: TextAlign.justify,

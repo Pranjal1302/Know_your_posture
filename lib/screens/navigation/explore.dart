@@ -43,34 +43,27 @@ class _exploreState extends State<explore> {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color.fromARGB(255, 166, 0, 255),
-              Color.fromARGB(255, 182, 62, 182),
-              Color.fromARGB(255, 124, 90, 158),
-              Color.fromARGB(255, 72, 50, 144),
-            ],
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-          ),
-        ),
+        decoration:
+            const BoxDecoration(color: Color.fromARGB(255, 60, 67, 111)),
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.fromLTRB(20, 50, 20, 0),
-            child: Column(
+            padding: EdgeInsets.fromLTRB(
+                0.025 * width, 0.07 * height, 0.025 * width, 0),
+            child: const Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   'Explore',
                   style: TextStyle(
                     fontFamily: 'Montserrat',
                     fontSize: 30,
-                    color: Color.fromARGB(255, 255, 255, 255),
+                    color: Color.fromARGB(255, 253, 220, 189),
                     fontWeight: FontWeight.w700,
                   ),
                   textAlign: TextAlign.left,
@@ -188,45 +181,42 @@ class _exploreState extends State<explore> {
           ),
         ),
       ),
-      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
-      bottomNavigationBar: Container(
-        color: Color.fromARGB(255, 255, 255, 255),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: GNav(
-            onTabChange: (index) {
-              _navigateToPage(context, index);
-            },
-            rippleColor: Color.fromARGB(255, 255, 255, 255)!,
-            gap: 8,
-            padding: EdgeInsets.all(16),
-            backgroundColor: Color.fromARGB(255, 255, 255, 255),
-            color: Color.fromARGB(255, 172, 128, 255),
-            activeColor: Color.fromARGB(255, 255, 255, 255),
-            tabs: const <GButton>[
-              GButton(
-                icon: Icons.home,
-                text: 'Home',
-                backgroundColor: Color.fromARGB(255, 152, 171, 171),
-              ),
-              GButton(
-                icon: Icons.search,
-                text: 'Explore',
-                backgroundColor: Color.fromARGB(255, 182, 160, 242),
-              ),
-              GButton(
-                icon: Icons.add_circle_outline,
-                text: 'Report',
-                backgroundColor: Color.fromARGB(255, 152, 171, 171),
-              ),
-              GButton(
-                icon: Icons.person,
-                text: 'Profile',
-                backgroundColor: Color.fromARGB(255, 152, 171, 171),
-              ),
-            ],
-            selectedIndex: 1,
-          ),
+      backgroundColor: const Color.fromARGB(255, 60, 67, 111),
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.fromLTRB(
+            0.06 * width, 0.01 * height, 0.06 * width, 0.01 * height),
+        child: GNav(
+          onTabChange: (index) {
+            _navigateToPage(context, index);
+          },
+          rippleColor: const Color.fromARGB(255, 60, 67, 111),
+          gap: 6,
+          padding: const EdgeInsets.all(16),
+          backgroundColor: const Color.fromARGB(255, 60, 67, 111),
+          color: const Color.fromARGB(255, 172, 128, 255),
+          activeColor: const Color.fromARGB(255, 60, 67, 111),
+          tabs: const <GButton>[
+            GButton(
+              icon: Icons.home,
+              backgroundColor: Color.fromARGB(255, 253, 220, 189),
+            ),
+            GButton(
+              icon: Icons.search,
+              // text: 'Explore',
+              backgroundColor: Color.fromARGB(255, 253, 220, 189),
+            ),
+            GButton(
+              icon: Icons.add_circle_outline,
+              // text: 'Report',
+              backgroundColor: Color.fromARGB(255, 253, 220, 189),
+            ),
+            GButton(
+              icon: Icons.person,
+              // text: 'Profile',
+              backgroundColor: Color.fromARGB(255, 253, 220, 189),
+            ),
+          ],
+          selectedIndex: 1,
         ),
       ),
     );

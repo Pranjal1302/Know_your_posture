@@ -18,6 +18,7 @@ class _notificationState extends State<notification> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Position"),
+        backgroundColor: const Color.fromARGB(255, 60, 67, 111),
       ),
       body: Container(
         child: Column(
@@ -27,11 +28,19 @@ class _notificationState extends State<notification> {
               query: ref,
               defaultChild: Text("Loading..."),
               itemBuilder: (context, snapshot, animation, index) {
+                print(snapshot.child("angle").value);
                 var angle = snapshot.child('Flex_angle').value;
+                // var flex = angle!.['Flex_angle'];
+                // print(flex);
+                print(angle);
+
+                if (angle != null) {
+                  // if (angle > 12) {}
+                }
                 return ListTile(
-                  title: Text(angle == 12 ? "Good" : "Bad",
+                  title: Text(angle == 10 ? "Good" : "Bad",
                       style: TextStyle(
-                          color: angle == 12 ? Colors.green : Colors.red,
+                          color: angle == 10 ? Colors.green : Colors.red,
                           fontSize: 20)),
                   subtitle: Text(snapshot.child('Flex_angle').value.toString()),
                 );

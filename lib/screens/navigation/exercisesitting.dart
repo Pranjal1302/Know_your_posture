@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:yoga/screens/navigation/steps/figure.dart';
+import 'package:yoga/screens/navigation/steps/hamstring.dart';
 import 'package:yoga/screens/navigation/steps/seatedknee.dart';
 
 class exesitting extends StatefulWidget {
@@ -11,37 +13,29 @@ class exesitting extends StatefulWidget {
 class _exesittingState extends State<exesitting> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color.fromARGB(255, 166, 0, 255),
-              Color.fromARGB(255, 182, 62, 182),
-              Color.fromARGB(255, 124, 90, 158),
-              Color.fromARGB(255, 72, 50, 144),
-            ],
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-          ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(0, 60, 0, 0),
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Sitting Exercise'),
+        backgroundColor: Color.fromARGB(255, 51, 57, 94),
+      ),
+      body: Container(
+          height: 1 * height,
+          width: 1 * width,
+          decoration:
+              const BoxDecoration(color: Color.fromARGB(255, 60, 67, 111)),
           child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 30,
-                ),
-                Text('Sitting',
-                    style: const TextStyle(color: Colors.white, fontSize: 30)),
-                SizedBox(
-                  height: 80,
+                  height: 0.07 * height,
                 ),
                 InkWell(
                   child: SizedBox(
-                    height: 200,
-                    width: 300,
+                    height: 0.2 * height,
+                    width: 0.8 * width,
                     child: Image.network(
                         "https://www.btod.com/blog/wp-content/uploads/2017/01/04-stretches-seated-knee-to-chest.jpg"),
                   ),
@@ -51,18 +45,36 @@ class _exesittingState extends State<exesitting> {
                   ),
                 ),
                 SizedBox(
-                  height: 200,
-                  width: 300,
-                  child: Image.network(
-                      "https://www.btod.com/blog/wp-content/uploads/2017/01/05-stretches-seated-hamstring.jpg"),
+                  height: 0.05 * height,
+                ),
+                InkWell(
+                  child: SizedBox(
+                    height: 0.2 * height,
+                    width: 0.8 * width,
+                    child: Image.network(
+                        "https://www.btod.com/blog/wp-content/uploads/2017/01/05-stretches-seated-hamstring.jpg"),
+                  ),
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const hamstring()),
+                  ),
                 ),
                 SizedBox(
-                  height: 200,
-                  width: 300,
-                  child: Image.network(
-                      "https://www.btod.com/blog/wp-content/uploads/2017/01/06-stretches-seated-figure-4.jpg"),
+                  height: 0.05 * height,
                 ),
-              ]),
-        ));
+                InkWell(
+                  child: SizedBox(
+                    height: 0.2 * height,
+                    width: 0.8 * width,
+                    child: Image.network(
+                        "https://www.btod.com/blog/wp-content/uploads/2017/01/06-stretches-seated-figure-4.jpg"),
+                  ),
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const figure()),
+                  ),
+                ),
+              ])),
+    );
   }
 }

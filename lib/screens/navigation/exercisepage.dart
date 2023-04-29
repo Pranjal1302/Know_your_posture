@@ -15,16 +15,7 @@ class _ExercisePageState extends State<ExercisePage> {
     return Scaffold(
       body: Container(
           decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color.fromARGB(255, 166, 0, 255),
-                Color.fromARGB(255, 182, 62, 182),
-                Color.fromARGB(255, 124, 90, 158),
-                Color.fromARGB(255, 72, 50, 144),
-              ],
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-            ),
+            color: Color.fromARGB(255, 60, 67, 111),
           ),
           child: Padding(
             padding: const EdgeInsets.all(50.0),

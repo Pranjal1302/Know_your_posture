@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:yoga/screens/navigation/steps/hip.dart';
+import 'package:yoga/screens/navigation/steps/trunk2.dart';
 
 class exestanding extends StatefulWidget {
   const exestanding({Key? key}) : super(key: key);
@@ -10,46 +12,53 @@ class exestanding extends StatefulWidget {
 class _exestandingState extends State<exestanding> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color.fromARGB(255, 166, 0, 255),
-              Color.fromARGB(255, 182, 62, 182),
-              Color.fromARGB(255, 124, 90, 158),
-              Color.fromARGB(255, 72, 50, 144),
-            ],
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-          ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(0, 60, 0, 0),
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Standing Exercise'),
+        backgroundColor: Color.fromARGB(255, 51, 57, 94),
+      ),
+      body: Container(
+          height: height,
+          width: width,
+          decoration:
+              const BoxDecoration(color: Color.fromARGB(255, 60, 67, 111)),
           child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(
-                  height: 50,
-                ),
-                Text('Standing',
-                    style: const TextStyle(color: Colors.white, fontSize: 30)),
-                SizedBox(
+                const SizedBox(
                   height: 80,
                 ),
-                SizedBox(
-                  height: 200,
-                  width: 300,
-                  child: Image.network(
-                      "https://www.btod.com/blog/wp-content/uploads/2017/01/01-stretches-standing-trunk-extension.jpg"),
+                InkWell(
+                  child: SizedBox(
+                    height: 200,
+                    width: 300,
+                    child: Image.network(
+                        "https://www.btod.com/blog/wp-content/uploads/2017/01/01-stretches-standing-trunk-extension.jpg"),
+                  ),
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const trunk2()),
+                  ),
                 ),
-                SizedBox(
-                  height: 200,
-                  width: 300,
-                  child: Image.network(
-                      "https://www.btod.com/blog/wp-content/uploads/2017/01/02-stretches-standing-quad-hip-flexor.jpg"),
+                const SizedBox(
+                  height: 80,
                 ),
-              ]),
-        ));
+                InkWell(
+                  child: SizedBox(
+                    height: 200,
+                    width: 300,
+                    child: Image.network(
+                        "https://www.btod.com/blog/wp-content/uploads/2017/01/02-stretches-standing-quad-hip-flexor.jpg"),
+                  ),
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const hip()),
+                  ),
+                ),
+              ])),
+    );
   }
 }

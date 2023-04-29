@@ -31,6 +31,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  List<double> weekly = [3.4, 5.4, 21.8, 4.45, 8.85];
   _navigateToPage(context, index) {
     switch (index) {
       case 0:
@@ -62,6 +63,8 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     FirebaseDatabase database = FirebaseDatabase.instance;
     DatabaseReference ref = FirebaseDatabase.instance.ref("test");
     Stream<DatabaseEvent> stream = ref.onValue;
@@ -72,236 +75,243 @@ class _HomeState extends State<Home> {
       value: DatabaseService(uid: '').users,
       initialData: const <Users>[],
       child: Scaffold(
-        body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color.fromARGB(255, 166, 0, 255),
-                Color.fromARGB(255, 182, 62, 182),
-                Color.fromARGB(255, 124, 90, 158),
-                Color.fromARGB(255, 72, 50, 144),
-              ],
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-            ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 30,
-                ),
-                InkWell(
-                  child: Card(
-                    color: const Color.fromARGB(255, 128, 210, 227),
-                    elevation: 50,
-                    child: SizedBox(
-                      height: 150,
-                      width: 400,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              const Text(
-                                'Notifications',
-                                style: TextStyle(
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                ),
+        extendBodyBehindAppBar: true,
+        // appBar: AppBar(
+        //   toolbarHeight: 0.09 * height,
+        //   centerTitle: true,
+        //   title: const Text(
+        //     'Home',
+        //   ),
+        //   backgroundColor: Colors.transparent,
+        //   elevation: 0,
+        //   automaticallyImplyLeading: false,
+        // ),
+        body: SingleChildScrollView(
+          child: Container(
+            decoration:
+                const BoxDecoration(color: Color.fromARGB(255, 60, 67, 111)),
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(
+                  0.025 * width, 0.07 * height, 0.025 * width, 0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Home',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 253, 220, 189),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 0.025 * height,
+                  ),
+                  InkWell(
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6.0)),
+                      // color: const Color.fromARGB(255, 128, 210, 227),
+                      elevation: 50,
+                      child: SizedBox(
+                        height: 0.2789 * height,
+                        width: 1 * width,
+                        child: Container(
+                          decoration: const BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8.0))),
+                          child: Stack(
+                            children: [
+                              Image.asset(
+                                "assets/posture.jpg",
+                                height: 0.2789 * height,
+                                width: 1 * width,
                               ),
+                              Padding(
+                                padding: EdgeInsets.all(0.025 * width),
+                                child: const Text(
+                                  "Get your posture",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 40),
+                                ),
+                              )
                             ],
                           ),
+                        ),
+                      ),
+                    ),
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const notification()),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 0.03 * height,
+                  ),
+                  SizedBox(
+                    height: 0.35 * height,
+                    width: 1 * width,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        SizedBox(
+                          height: 0.35 * height,
+                          width: 0.45 * width,
+                          child: InkWell(
+                            child: const Card(
+                              elevation: 50,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Yoga',
+                                    style: TextStyle(
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Icon(
+                                    Icons.accessibility_new,
+                                    color: Colors.black,
+                                    size: 100,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const YogaPage()),
+                              );
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          height: 0.35 * height,
+                          width: 0.45 * width,
+                          child: InkWell(
+                            child: const Card(
+                              elevation: 50,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Exercise',
+                                    style: TextStyle(
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Icon(
+                                    Icons.directions_run,
+                                    color: Colors.black,
+                                    size: 100,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const ExercisePage()),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 0.025 * height,
+                  ),
+                  Card(
+                    color: Color.fromARGB(255, 253, 220, 189),
+                    elevation: 50,
+                    child: SizedBox(
+                      height: 250,
+                      width: 400,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
                           const SizedBox(
-                            width: 20,
+                            height: 10,
                           ),
-                          const Icon(
-                            Icons.notifications_none,
-                            color: Colors.black,
-                            size: 30,
+                          const Text(
+                            'Daily Report',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
                           ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          SizedBox(
+                            height: 175,
+                            child: Image.network(
+                                "https://prd-api-aggregate.statcrunch.com/api/aggregation/documents/531754XHXWH?context=results_image&code=&extension=png"),
+                          )
                         ],
                       ),
                     ),
                   ),
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const notification()),
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                SizedBox(
-                  height: 250,
-                  width: 400,
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        height: 250,
-                        width: 175,
-                        child: InkWell(
-                          child: Card(
-                            elevation: 50,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: const [
-                                Text(
-                                  'Yoga',
-                                  style: TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Icon(
-                                  Icons.accessibility_new,
-                                  color: Colors.black,
-                                  size: 100,
-                                ),
-                              ],
-                            ),
-                          ),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const YogaPage()),
-                            );
-                          },
-                        ),
-                      ),
-                      SizedBox(
-                        height: 250,
-                        width: 175,
-                        child: InkWell(
-                          child: Card(
-                            elevation: 50,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: const [
-                                Text(
-                                  'Exercise',
-                                  style: TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Icon(
-                                  Icons.directions_run,
-                                  color: Colors.black,
-                                  size: 100,
-                                ),
-                              ],
-                            ),
-                          ),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const ExercisePage()),
-                            );
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Card(
-                  color: const Color.fromARGB(255, 229, 223, 149),
-                  elevation: 50,
-                  child: SizedBox(
-                    height: 250,
-                    width: 400,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        const Text(
-                          'Daily Report',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        SizedBox(
-                          height: 175,
-                          child: Image.network(
-                              "https://prd-api-aggregate.statcrunch.com/api/aggregation/documents/531754XHXWH?context=results_image&code=&extension=png"),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
-        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
-        bottomNavigationBar: Container(
-          color: const Color.fromARGB(255, 255, 255, 255),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GNav(
-              onTabChange: (index) {
-                _navigateToPage(context, index);
-              },
-              rippleColor: const Color.fromARGB(255, 255, 255, 255),
-              gap: 8,
-              padding: const EdgeInsets.all(16),
-              backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-              color: const Color.fromARGB(255, 172, 128, 255),
-              activeColor: const Color.fromARGB(255, 255, 255, 255),
-              tabs: const <GButton>[
-                GButton(
-                  icon: Icons.home,
-                  text: 'Home',
-                  backgroundColor: Color.fromARGB(255, 182, 160, 242),
-                ),
-                GButton(
-                  icon: Icons.search,
-                  text: 'Explore',
-                  backgroundColor: Color.fromARGB(255, 152, 171, 171),
-                ),
-                GButton(
-                  icon: Icons.add_circle_outline,
-                  text: 'Report',
-                  backgroundColor: Color.fromARGB(255, 152, 171, 171),
-                ),
-                GButton(
-                  icon: Icons.person,
-                  text: 'Profile',
-                  backgroundColor: Color.fromARGB(255, 152, 171, 171),
-                ),
-              ],
-              selectedIndex: 0,
-            ),
+        backgroundColor: const Color.fromARGB(255, 60, 67, 111),
+        bottomNavigationBar: Padding(
+          padding: EdgeInsets.fromLTRB(
+              0.06 * width, 0.01 * height, 0.06 * width, 0.01 * height),
+          child: GNav(
+            onTabChange: (index) {
+              _navigateToPage(context, index);
+            },
+            rippleColor: const Color.fromARGB(255, 60, 67, 111),
+            gap: 6,
+            padding: const EdgeInsets.all(16),
+            backgroundColor: const Color.fromARGB(255, 60, 67, 111),
+            color: const Color.fromARGB(255, 172, 128, 255),
+            activeColor: const Color.fromARGB(255, 60, 67, 111),
+            tabs: const <GButton>[
+              GButton(
+                icon: Icons.home,
+                backgroundColor: Color.fromARGB(255, 253, 220, 189),
+              ),
+              GButton(
+                icon: Icons.search,
+                // text: 'Explore',
+                backgroundColor: Color.fromARGB(255, 253, 220, 189),
+              ),
+              GButton(
+                icon: Icons.add_circle_outline,
+                // text: 'Report',
+                backgroundColor: Color.fromARGB(255, 253, 220, 189),
+              ),
+              GButton(
+                icon: Icons.person,
+                // text: 'Profile',
+                backgroundColor: Color.fromARGB(255, 253, 220, 189),
+              ),
+            ],
+            selectedIndex: 0,
           ),
         ),
         // appBar: AppBar(

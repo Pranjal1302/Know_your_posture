@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:yoga/screens/navigation/steps/Sphinx.dart';
+import 'package:yoga/screens/navigation/steps/childpose.dart';
+import 'package:yoga/screens/navigation/steps/kneetochest.dart';
 
 class yogasitting extends StatefulWidget {
   const yogasitting({Key? key}) : super(key: key);
@@ -12,43 +15,55 @@ class _yogasittingState extends State<yogasitting> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    return Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color.fromARGB(255, 166, 0, 255),
-              Color.fromARGB(255, 182, 62, 182),
-              Color.fromARGB(255, 124, 90, 158),
-              Color.fromARGB(255, 72, 50, 144),
-            ],
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-          ),
-        ),
-        child: Padding(
-          padding: EdgeInsets.fromLTRB(0, 0.1 * screenHeight, 0, 0),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Sitting Yoga'),
+        backgroundColor: Color.fromARGB(255, 51, 57, 94),
+      ),
+      body: Container(
+          height: 1 * screenHeight,
+          width: 1 * screenWidth,
+          decoration:
+              const BoxDecoration(color: Color.fromARGB(255, 60, 67, 111)),
           child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text('Sitting',
-                    style: const TextStyle(color: Colors.white, fontSize: 30)),
-                SizedBox(
-                  height: 0.25 * screenHeight,
-                  width: 0.9 * screenWidth,
-                  child: Image.asset('assets/sitting1.jpeg'),
+                SizedBox(height: 0.06 * screenHeight),
+                InkWell(
+                  child: SizedBox(
+                    height: 0.25 * screenHeight,
+                    width: 0.9 * screenWidth,
+                    child: Image.asset('assets/sitting1.jpeg'),
+                  ),
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const childpose()),
+                  ),
                 ),
-                SizedBox(
-                  height: 0.25 * screenHeight,
-                  width: 0.9 * screenWidth,
-                  child: Image.asset('assets/sitting2.jpeg'),
+                InkWell(
+                  child: SizedBox(
+                    height: 0.25 * screenHeight,
+                    width: 0.9 * screenWidth,
+                    child: Image.asset('assets/sitting2.jpeg'),
+                  ),
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const sphinx()),
+                  ),
                 ),
-                SizedBox(
-                  height: 0.25 * screenHeight,
-                  width: 0.9 * screenWidth,
-                  child: Image.asset('assets/sitting3.jpeg'),
+                InkWell(
+                  child: SizedBox(
+                    height: 0.25 * screenHeight,
+                    width: 0.9 * screenWidth,
+                    child: Image.asset('assets/sitting3.jpeg'),
+                  ),
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const knee()),
+                  ),
                 ),
-              ]),
-        ));
+              ])),
+    );
   }
 }

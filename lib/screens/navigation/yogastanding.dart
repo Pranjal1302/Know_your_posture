@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:yoga/screens/navigation/steps/Forwardfold.dart';
+import 'package:yoga/screens/navigation/steps/triangle.dart';
+import 'package:yoga/screens/navigation/steps/trunk.dart';
 
 class yogastanding extends StatefulWidget {
   const yogastanding({Key? key}) : super(key: key);
@@ -16,31 +19,28 @@ class _yogastandingState extends State<yogastanding> {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Standing Yoga'),
-          backgroundColor: Colors.purple,
+          backgroundColor: Color.fromARGB(255, 51, 57, 94),
         ),
         body: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color.fromARGB(255, 166, 0, 255),
-                  Color.fromARGB(255, 182, 62, 182),
-                  Color.fromARGB(255, 124, 90, 158),
-                  Color.fromARGB(255, 72, 50, 144),
-                ],
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-              ),
-            ),
+            decoration:
+                const BoxDecoration(color: Color.fromARGB(255, 60, 67, 111)),
             child: Padding(
               padding: EdgeInsets.fromLTRB(0, 0.1 * screenHeight, 0, 0),
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      height: 0.3 * screenHeight,
-                      width: 0.8 * screenWidth,
-                      child: Image.asset('assets/standing1.jpeg'),
+                    InkWell(
+                      child: SizedBox(
+                        height: 0.3 * screenHeight,
+                        width: 0.8 * screenWidth,
+                        child: Image.asset('assets/standing1.jpeg'),
+                      ),
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const triangle()),
+                      ),
                     ),
                     SizedBox(
                       height: 0.04 * screenHeight,
@@ -48,18 +48,32 @@ class _yogastandingState extends State<yogastanding> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(
-                          height: 0.35 * screenHeight,
-                          width: 0.35 * screenWidth,
-                          child: Image.asset('assets/standing2.jpeg'),
+                        InkWell(
+                          child: SizedBox(
+                            height: 0.35 * screenHeight,
+                            width: 0.35 * screenWidth,
+                            child: Image.asset('assets/standing2.jpeg'),
+                          ),
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const forwardfold()),
+                          ),
                         ),
                         SizedBox(
                           width: 0.04 * screenWidth,
                         ),
-                        SizedBox(
-                          height: 0.35 * screenHeight,
-                          width: 0.36 * screenWidth,
-                          child: Image.asset('assets/standing3.jpeg'),
+                        InkWell(
+                          child: SizedBox(
+                            height: 0.35 * screenHeight,
+                            width: 0.36 * screenWidth,
+                            child: Image.asset('assets/standing3.jpeg'),
+                          ),
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const trunk()),
+                          ),
                         ),
                       ],
                     )

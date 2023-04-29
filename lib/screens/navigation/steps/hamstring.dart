@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../yogasitting.dart';
 import '../yogastanding.dart';
 
-class seatedknee extends StatelessWidget {
-  const seatedknee({Key? key}) : super(key: key);
+class hamstring extends StatelessWidget {
+  const hamstring({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +20,11 @@ class seatedknee extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Text('Seated Knee',
-                    style: TextStyle(color: Colors.white, fontSize: 30)),
+                const Text(
+                  'Seated Hamstring Stretch',
+                  style: TextStyle(color: Colors.white, fontSize: 30),
+                  textAlign: TextAlign.center,
+                ),
                 SizedBox(
                   height: 0.05 * height,
                 ),
@@ -30,11 +33,11 @@ class seatedknee extends StatelessWidget {
                     height: 0.35 * height,
                     width: 0.9 * width,
                     child: Image.network(
-                        "https://www.btod.com/blog/wp-content/uploads/2017/01/04-stretches-seated-knee-to-chest.jpg"),
+                        "https://www.btod.com/blog/wp-content/uploads/2017/01/05-stretches-seated-hamstring.jpg"),
                   ),
                 ]),
                 const Text(
-                  '1.While sitting in a chair, raise one knee as if you are marching until you can reach it with your hands',
+                  '1.While seated, rest your heel on the floor with your knee straight.',
                   style: TextStyle(
                       color: Color.fromARGB(255, 255, 255, 255), fontSize: 15),
                   textAlign: TextAlign.justify,
@@ -43,7 +46,7 @@ class seatedknee extends StatelessWidget {
                   height: 0.02 * height,
                 ),
                 const Text(
-                  '2.Use both hands to pull the bent knee up toward your chest until you feel a gentle stretch in the lower back and back of the hip.',
+                  '2.Gently lean forward until a stretch is felt behind your knee/thigh.',
                   style: TextStyle(
                       color: Color.fromARGB(255, 255, 255, 255), fontSize: 15),
                   textAlign: TextAlign.justify,
@@ -52,7 +55,7 @@ class seatedknee extends StatelessWidget {
                   height: 0.02 * height,
                 ),
                 const Text(
-                  '3.Your hands can be on top of your knee or behind your knee for comfort. ',
+                  '3.You should keep your low back straight to focus the stretch on the hamstring muscles.',
                   style: TextStyle(
                       color: Color.fromARGB(255, 255, 255, 255), fontSize: 15),
                   textAlign: TextAlign.justify,
@@ -61,7 +64,7 @@ class seatedknee extends StatelessWidget {
                   height: 0.02 * height,
                 ),
                 const Text(
-                  '4.Hold this position for 15-20 seconds, then repeat 3-5 times on each side',
+                  '4.Hold the stretch for 20-30 seconds, then repeat 3-4 times on each leg.',
                   style: TextStyle(
                       color: Color.fromARGB(255, 255, 255, 255), fontSize: 15),
                   textAlign: TextAlign.justify,

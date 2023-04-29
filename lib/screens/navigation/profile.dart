@@ -18,6 +18,8 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     _navigateToPage(context, index) {
       switch (index) {
         case 0:
@@ -72,16 +74,7 @@ class _ProfileState extends State<Profile> {
       // ),
       body: Container(
         decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color.fromARGB(255, 166, 0, 255),
-              Color.fromARGB(255, 182, 62, 182),
-              Color.fromARGB(255, 124, 90, 158),
-              Color.fromARGB(255, 72, 50, 144),
-            ],
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-          ),
+          color: Color.fromARGB(255, 60, 67, 111),
         ),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(5, 60, 5, 0),
@@ -102,7 +95,7 @@ class _ProfileState extends State<Profile> {
               const Text(
                 'Name',
                 style: TextStyle(
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 253, 220, 189),
                     fontSize: 30.0,
                     fontWeight: FontWeight.bold),
               ),
@@ -112,7 +105,7 @@ class _ProfileState extends State<Profile> {
               InkWell(
                   child: const Card(
                       elevation: 50,
-                      color: Colors.greenAccent,
+                      color: Color.fromARGB(255, 253, 220, 189),
                       child: SizedBox(
                         height: 50,
                         width: 400,
@@ -123,7 +116,7 @@ class _ProfileState extends State<Profile> {
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black,
+                              color: Color.fromARGB(255, 60, 67, 111),
                             ),
                           ),
                         ),
@@ -138,7 +131,7 @@ class _ProfileState extends State<Profile> {
               const SizedBox(),
               const Card(
                   elevation: 50,
-                  color: Colors.greenAccent,
+                  color: Color.fromARGB(255, 253, 220, 189),
                   child: SizedBox(
                     height: 50,
                     width: 400,
@@ -149,7 +142,7 @@ class _ProfileState extends State<Profile> {
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                          color: Color.fromARGB(255, 60, 67, 111),
                         ),
                       ),
                     ),
@@ -157,7 +150,7 @@ class _ProfileState extends State<Profile> {
               const SizedBox(),
               const Card(
                   elevation: 50,
-                  color: Colors.greenAccent,
+                  color: Color.fromARGB(255, 253, 220, 189),
                   child: SizedBox(
                     height: 50,
                     width: 400,
@@ -168,7 +161,7 @@ class _ProfileState extends State<Profile> {
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                          color: Color.fromARGB(255, 60, 67, 111),
                         ),
                       ),
                     ),
@@ -176,7 +169,7 @@ class _ProfileState extends State<Profile> {
               const SizedBox(),
               const Card(
                   elevation: 50,
-                  color: Colors.greenAccent,
+                  color: Color.fromARGB(255, 253, 220, 189),
                   child: SizedBox(
                     height: 50,
                     width: 400,
@@ -187,7 +180,7 @@ class _ProfileState extends State<Profile> {
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                          color: Color.fromARGB(255, 60, 67, 111),
                         ),
                       ),
                     ),
@@ -196,7 +189,7 @@ class _ProfileState extends State<Profile> {
               InkWell(
                   child: const Card(
                       elevation: 50,
-                      color: Colors.greenAccent,
+                      color: Color.fromARGB(255, 253, 220, 189),
                       child: SizedBox(
                         height: 50,
                         width: 400,
@@ -207,7 +200,7 @@ class _ProfileState extends State<Profile> {
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black,
+                              color: Color.fromARGB(255, 60, 67, 111),
                             ),
                           ),
                         ),
@@ -223,43 +216,42 @@ class _ProfileState extends State<Profile> {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: GNav(
-            onTabChange: (index) {
-              _navigateToPage(context, index);
-            },
-            rippleColor: const Color.fromARGB(255, 255, 255, 255)!,
-            gap: 8,
-            padding: const EdgeInsets.all(16),
-            backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-            color: const Color.fromARGB(255, 172, 128, 255),
-            activeColor: const Color.fromARGB(255, 255, 255, 255),
-            tabs: const <GButton>[
-              GButton(
-                icon: Icons.home,
-                text: 'Home',
-                backgroundColor: Color.fromARGB(255, 152, 171, 171),
-              ),
-              GButton(
-                icon: Icons.search,
-                text: 'Explore',
-                backgroundColor: Color.fromARGB(255, 152, 171, 171),
-              ),
-              GButton(
-                icon: Icons.add_circle_outline,
-                text: 'Report',
-                backgroundColor: Color.fromARGB(255, 152, 171, 171),
-              ),
-              GButton(
-                icon: Icons.person,
-                text: 'Profile',
-                backgroundColor: Color.fromARGB(255, 182, 160, 242),
-              ),
-            ],
-            selectedIndex: 3,
-          ),
+      backgroundColor: const Color.fromARGB(255, 60, 67, 111),
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.fromLTRB(
+            0.06 * width, 0.01 * height, 0.06 * width, 0.01 * height),
+        child: GNav(
+          onTabChange: (index) {
+            _navigateToPage(context, index);
+          },
+          rippleColor: const Color.fromARGB(255, 60, 67, 111),
+          gap: 6,
+          padding: const EdgeInsets.all(16),
+          backgroundColor: const Color.fromARGB(255, 60, 67, 111),
+          color: const Color.fromARGB(255, 172, 128, 255),
+          activeColor: const Color.fromARGB(255, 60, 67, 111),
+          tabs: const <GButton>[
+            GButton(
+              icon: Icons.home,
+              backgroundColor: Color.fromARGB(255, 253, 220, 189),
+            ),
+            GButton(
+              icon: Icons.search,
+              // text: 'Explore',
+              backgroundColor: Color.fromARGB(255, 253, 220, 189),
+            ),
+            GButton(
+              icon: Icons.add_circle_outline,
+              // text: 'Report',
+              backgroundColor: Color.fromARGB(255, 253, 220, 189),
+            ),
+            GButton(
+              icon: Icons.person,
+              // text: 'Profile',
+              backgroundColor: Color.fromARGB(255, 253, 220, 189),
+            ),
+          ],
+          selectedIndex: 3,
         ),
       ),
     );

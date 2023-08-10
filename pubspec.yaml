@@ -85,6 +85,8 @@ flutter:
     - assets/profile.png
     - assets/splashscreen.jpg
     - assets/posture.jpg
+    - assets/graph.jpeg
+    - assets/weekg.jpeg
   
 
   # An image asset can refer to one or more resolution-specific "variants", see

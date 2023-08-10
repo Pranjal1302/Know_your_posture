@@ -264,8 +264,7 @@ class _HomeState extends State<Home> {
                           ),
                           SizedBox(
                             height: 175,
-                            child: Image.network(
-                                "https://prd-api-aggregate.statcrunch.com/api/aggregation/documents/531754XHXWH?context=results_image&code=&extension=png"),
+                            child: Image.asset('assets/graph.jpeg'),
                           )
                         ],
                       ),

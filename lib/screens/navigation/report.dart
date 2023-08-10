@@ -124,21 +124,20 @@ class _ReportState extends State<Report> {
                           const SizedBox(
                             height: 10,
                           ),
-                          const Text(
-                            'Weekly Report',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),
-                          ),
+                          // const Text(
+                          //   'Weekly Report',
+                          //   style: TextStyle(
+                          //     fontSize: 20,
+                          //     fontWeight: FontWeight.bold,
+                          //     color: Colors.black,
+                          //   ),
+                          // ),
                           const SizedBox(
                             height: 20,
                           ),
                           SizedBox(
                             height: 175,
-                            child: Image.network(
-                                "https://prd-api-aggregate.statcrunch.com/api/aggregation/documents/531754XHXWH?context=results_image&code=&extension=png"),
+                            child: Image.asset('assets/weekg.jpeg'),
                           )
                         ],
                       ),
